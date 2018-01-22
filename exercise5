@@ -1,0 +1,12 @@
+3)
+select city, hotelname, guestname, guestaddress from (select guestno, city, hotelname from hotel join booking on hotel.hotelno=booking.hotelno having city='London') as booking join guest on guest.guestno=booking.guestno order by guestname;
+4)
+select * from room where (type='double' or type='family') and price<40 order by price;
+5)
+select * from booking where dateto is NULL;
+6)
+select type,avg(price) as averag_price from room group by type;
+7)
+select type, sum(price) from room where type='double' group by type;
+8)
+select count(*) as bookin_august from booking where month(datefrom)=8;
