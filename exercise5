@@ -10,3 +10,26 @@ select type,avg(price) as averag_price from room group by type;
 select type, sum(price) from room where type='double' group by type;
 8)
 select count(*) as bookin_august from booking where month(datefrom)=8;
+9)
+select hotelname, type, price from (select * from hotel where hotelname='The Tower Hotel') as hotel join room on room.hotelno=hotel.hotelno;
+10)
+select city, hotelname, guestname, guestaddress from (select guestno, city, hotelname from (select hotelname, city, hotelno from hotel where hotelname='THe Tower Hotel' ) as hotel join booking on booking.hotelno=hotel.hotelno) as hotel join guest on guest.guestno=hotel.guestno;
+11)
+?
+12)
+?
+13)
+?
+14)
+?
+15) 
+select hotelname, count(hotelname) as nrooms from (select hotelname, hotelno from hotel) as hotel join room on room.hotelno=hotel.hotelno group  by hotelname;
+16)
+select city, hotelname, count(hotelname) as nrooms from (select city, hotelname, hotelno from hotel where city='London') as hotel join room on room.hotelno=hotel.hotelno group  by hotelname;
+17)
+?
+18)
+?
+
+
+
